@@ -2,7 +2,7 @@ import { pokemonType } from "@/types/pokemon";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-const TOTAL_POKEMON = 150;
+const TOTAL_POKEMON = 20;
 
 export async function GET() {
   try {
@@ -25,12 +25,12 @@ export async function GET() {
           (name: any) => name.language.name === "ko"
         );
         return { ...response.data, korean_name: koreanName?.name || null };
-        // return { ...response.data, ...speciesResponse.data };
       }
     );
 
     return NextResponse.json(allPokemonData);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch data" });
+    const err = error as Error;
+    return NextResponse.json({ error: err.message });
   }
 }

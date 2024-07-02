@@ -22,3 +22,5 @@ export type pokemonType = {
     };
   }[];
 };
+
+export type pokemonTypesName = { language: { name: string } };

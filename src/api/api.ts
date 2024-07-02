@@ -15,14 +15,12 @@ class API {
     return response.data;
   }
 
-  // async getPokemon(pokemonId: number) {
-  //   console.log("GET POKEMON START___");
-  //   const response = await this.client.get(
-  //     `http://localhost:3000/pokemons/${pokemonId}`
-  //   );
-  //   console.log("GET POKEMON___", response.data);
-  //   return response.data;
-  // }
+  async getPokemon(pokemonId: number) {
+    // console.log("GET POKEMON START___");
+    const response = await this.client.get(`pokemons/${pokemonId}`);
+    // console.log("GET POKEMON___", response);
+    return response.data;
+  }
 }
 
 const api = new API();
