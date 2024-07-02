@@ -2,7 +2,7 @@ import { pokemonType } from "@/types/pokemon";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-const TOTAL_POKEMON = 1;
+const TOTAL_POKEMON = 4;
 
 export async function GET() {
   try {
@@ -21,8 +21,6 @@ export async function GET() {
 
     const allPokemonData: pokemonType[] = allPokemonResponses.map(
       ([response, speciesResponse]) => {
-        console.log("RESPONSE_____", response.data);
-        console.log("SPEC_____", speciesResponse.data);
         const koreanName = speciesResponse.data.names.find(
           (name: any) => name.language.name === "ko"
         );
