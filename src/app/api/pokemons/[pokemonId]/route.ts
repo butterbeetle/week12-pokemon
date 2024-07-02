@@ -1,4 +1,4 @@
-import { pokemonTypesName } from "@/types/pokemon";
+import { pokeType, pokemonTypesName } from "@/types/pokemon";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -62,8 +62,8 @@ export async function GET(_: NextRequest, { params }: Context) {
         }
       )
     );
-    console.log("movesWithkor____________", movesWithkor);
-    const pokemonData = {
+
+    const pokemonData: pokeType = {
       ...response.data,
       korean_name: koreanName,
       types: typesWithKor,

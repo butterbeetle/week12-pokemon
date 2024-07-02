@@ -23,4 +23,34 @@ export type pokemonType = {
   }[];
 };
 
+export type pokeType = {
+  id: number;
+  height: number;
+  weight: number;
+  sprites: {
+    front_default: string;
+  };
+  korean_name: {
+    name: string;
+  };
+  types: {
+    type: {
+      name: string;
+      korean_name: string;
+    };
+  }[];
+  abilities: {
+    ability: {
+      name: string;
+      korean_name: string;
+    };
+  }[];
+  moves: {
+    move: {
+      name: string;
+      korean_name: string;
+    };
+  }[];
+};
+
 export type pokemonTypesName = { language: { name: string } };
