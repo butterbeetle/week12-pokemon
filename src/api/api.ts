@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
-const baseURL = "/api";
+const baseURL = "http://localhost:3000/api";
 
 class API {
   private client: AxiosInstance;
@@ -9,11 +9,20 @@ class API {
     this.client = axios.create({ baseURL });
   }
 
-  async getPokemon() {
+  async getPokemons() {
     const response = await this.client.get("/pokemons");
-    // console.log("GET POKEMON___", response);
+    // console.log("GET POKEMONS___", response);
     return response.data;
   }
+
+  // async getPokemon(pokemonId: number) {
+  //   console.log("GET POKEMON START___");
+  //   const response = await this.client.get(
+  //     `http://localhost:3000/pokemons/${pokemonId}`
+  //   );
+  //   console.log("GET POKEMON___", response.data);
+  //   return response.data;
+  // }
 }
 
 const api = new API();

@@ -26,9 +26,12 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
         </div>
       </div>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-x-2">
         {pokemon.types.map(({ type: { name } }) => (
-          <div className="text-xs rounded-md px-8 py-1 border" key={name}>
+          <div
+            className="flex-1 text-xs rounded-md  py-1 text-center border"
+            key={name}
+          >
             {name}
           </div>
         ))}

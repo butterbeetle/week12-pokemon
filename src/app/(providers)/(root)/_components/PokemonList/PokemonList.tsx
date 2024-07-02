@@ -3,20 +3,13 @@
 import api from "@/api/api";
 import { pokemonType } from "@/types/pokemon";
 import { useQuery } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
 import Link from "next/link";
 import PokemonCard from "../PokemonCard";
 
 function PokemonList() {
-  const { data: pokemons } = useQuery<
-    AxiosResponse<pokemonType[]>,
-    number,
-    pokemonType[]
-  >({
+  const { data: pokemons } = useQuery<pokemonType[]>({
     queryKey: ["pokemons"],
-    queryFn: () => api.getPokemon(),
-    gcTime: 1000 * 60 * 10, // 10분
-    staleTime: 1000 * 60, // 1분
+    queryFn: () => api.getPokemons(),
   });
 
   return (

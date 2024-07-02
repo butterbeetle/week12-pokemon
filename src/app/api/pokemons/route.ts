@@ -2,7 +2,7 @@ import { pokemonType } from "@/types/pokemon";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-const TOTAL_POKEMON = 4;
+const TOTAL_POKEMON = 150;
 
 export async function GET() {
   try {
