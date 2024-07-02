@@ -20,6 +20,5 @@ export type pokemonType = {
     move: {
       name: string;
     };
-  };
-  [];
+  }[];
 };
