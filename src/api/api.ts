@@ -11,7 +11,7 @@ class API {
 
   async getPokemon() {
     const response = await this.client.get("/pokemons");
-    console.log("GET POKEMON___", response);
+    // console.log("GET POKEMON___", response);
     return response.data;
   }
 }
