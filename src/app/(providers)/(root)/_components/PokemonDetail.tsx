@@ -27,7 +27,7 @@ function PokemonDetail({ pokemon }: { pokemon: pokeType }) {
           <div className="grid grid-cols-3 p-2 gap-x-4">
             <div className="flex flex-col  gap-y-2">
               <p className="text-xs text-gray-400">타입</p>
-              <div className="flex gap-x-2">
+              <div className="flex flex-col gap-y-2">
                 {pokemon.types.map(({ type }) => (
                   <Chip
                     key={type.name}
