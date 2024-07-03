@@ -5,7 +5,7 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { PropsWithChildren } from "react";
-import Header from "./_components/Header/Header";
+import Header from "./_components/Header";
 
 async function RootLayout({ children }: PropsWithChildren) {
   const queryClient = new QueryClient();

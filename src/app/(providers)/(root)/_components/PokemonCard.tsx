@@ -1,6 +1,6 @@
 import { pokemonType } from "@/types/pokemon";
 import Image from "next/image";
-import Chip from "../Chip";
+import Chip from "./Chip";
 
 interface PokemonCardProps {
   pokemon: pokemonType;
