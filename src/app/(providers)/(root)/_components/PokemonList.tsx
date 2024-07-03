@@ -62,7 +62,7 @@ function PokemonList() {
     };
   }, [pokemons, fetchNextPage, hasNextPage]);
 
-  // console.log("POKEMON LIST___", pokemons);
+  console.log("POKEMON LIST___", pokemons);
   // console.log("HAS NEXT PAGE___", !isFetching, hasNextPage);
   return (
     <>

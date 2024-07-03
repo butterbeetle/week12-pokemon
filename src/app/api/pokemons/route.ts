@@ -1,4 +1,4 @@
-import { pokemonType } from "@/types/pokemon";
+import { pokemonType, pokemonTypesName } from "@/types/pokemon";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -44,13 +44,32 @@ export async function GET(req: NextRequest) {
 
     const allPokemonResponses = await Promise.all(allPokemonPromises);
 
-    const allPokemonData: pokemonType[] = allPokemonResponses.map(
-      ([response, speciesResponse]) => {
+    const allPokemonData: pokemonType[] = await Promise.all(
+      allPokemonResponses.map(async ([response, speciesResponse]) => {
         const koreanName = speciesResponse.data.names.find(
           (name: any) => name.language.name === "ko"
         );
-        return { ...response.data, korean_name: koreanName?.name || null };
-      }
+
+        const typesWithKor = await Promise.all(
+          response.data.types.map(async (type: { type: { url: string } }) => {
+            const typeResponse = await axios.get(type.type.url);
+            const koreanTypeName = typeResponse.data.names.find(
+              (name: pokemonTypesName) => name.language.name === "ko"
+            ).name;
+
+            return {
+              ...type,
+              type: { ...type.type, korean_name: koreanTypeName },
+            };
+          })
+        );
+
+        return {
+          ...response.data,
+          korean_name: koreanName?.name || null,
+          types: typesWithKor,
+        };
+      })
     );
 
     return NextResponse.json(allPokemonData);
