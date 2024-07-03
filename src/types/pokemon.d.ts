@@ -56,7 +56,7 @@ export type pokeType = {
   types: {
     type: {
       name: PokemonTypes;
-      korean_name: string;
+      korean_name: PokemonTypesKOR;
     };
   }[];
   abilities: {

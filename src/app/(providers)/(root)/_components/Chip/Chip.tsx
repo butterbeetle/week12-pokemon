@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 
 const chipVariants = cva(
-  "text-base flex-1 text-center border rounded-full px-2.5 py-0.5 text-white",
+  "text-base flex-1 text-center border rounded-full px-2.5 py-0.5 text-white font-bold",
   {
     variants: {
       type: {
@@ -33,8 +33,12 @@ const chipVariants = cva(
 
 type ChipVariantsType = VariantProps<typeof chipVariants>;
 
-function Chip({ type }: ChipVariantsType) {
-  return <div className={chipVariants({ type })}>{type}</div>;
+type ChipProps = {
+  label: string;
+} & ChipVariantsType;
+
+function Chip({ type, label }: ChipProps) {
+  return <div className={chipVariants({ type })}>{label}</div>;
 }
 
 export default Chip;

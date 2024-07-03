@@ -12,6 +12,7 @@ function PokemonList() {
     queryFn: () => api.getPokemons(),
   });
 
+  // console.log("POKEMON LIST___", pokemons);
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-8">
       {pokemons?.map((pokemon) => (

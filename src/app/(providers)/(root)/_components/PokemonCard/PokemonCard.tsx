@@ -31,7 +31,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
       <div className="flex justify-between gap-x-2">
         {pokemon.types.map(({ type: { name } }) => (
-          <Chip key={name} type={name} />
+          <Chip key={name} type={name} label={name} />
         ))}
       </div>
     </div>
