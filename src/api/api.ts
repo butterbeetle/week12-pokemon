@@ -9,8 +9,8 @@ class API {
     this.client = axios.create({ baseURL });
   }
 
-  async getPokemons() {
-    const response = await this.client.get("/pokemons");
+  async getPokemons(pageParam: any) {
+    const response = await this.client.get(`/pokemons?page=${pageParam}`);
     // console.log("GET POKEMONS___", response);
     return response.data;
   }
