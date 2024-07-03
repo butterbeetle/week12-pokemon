@@ -17,7 +17,7 @@ class API {
 
   async getPokemon(pokemonId: number) {
     // console.log("GET POKEMON START___");
-    const response = await this.client.get(`pokemons/${pokemonId}`);
+    const response = await this.client.get(`/pokemons/${pokemonId}`);
     // console.log("GET POKEMON___", response);
     return response.data;
   }
