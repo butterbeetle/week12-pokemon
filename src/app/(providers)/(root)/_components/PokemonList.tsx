@@ -25,12 +25,12 @@ function PokemonList() {
       // console.log("LAST PAGE PARAMS", lastPageParam); // 현재 api response 받아올 때 pageParams넣은값?
       // console.log("ALL PAGE", allPage); // 전체 데이터?
 
-      // 현재 length가 있다면 전체 데이터의 길이+1을 해서 page를 늘림
+      // 현재 length가 있다면 전체 데이터의 길이를 보내서 page를 늘림
       // allPage는 2중 배열이라 [[page1_data], [page2_data]] 이런식으로 page마다 데이터가 배열로 들어감
-      const nextPage = lastPage.length ? allPage.length + 1 : undefined;
+      const nextPage = lastPage.length ? allPage.length : undefined;
       return nextPage;
     },
-    initialPageParam: 2,
+    initialPageParam: 1,
     select: (data: InfiniteData<pokemonType[], unknown>) =>
       data.pages.flatMap((page) => page),
     staleTime: Infinity,

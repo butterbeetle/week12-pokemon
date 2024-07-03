@@ -1,4 +1,5 @@
 import api from "@/api/api";
+import { pokemonType } from "@/types/pokemon";
 import {
   HydrationBoundary,
   QueryClient,
@@ -12,8 +13,8 @@ async function HomePage() {
   await queryClient.prefetchInfiniteQuery({
     queryKey: ["pokemons"],
     queryFn: ({ pageParam }) => api.getPokemons(pageParam),
-    getNextPageParam: (lastPage: any) => lastPage.length + 1,
-    initialPageParam: 1,
+    getNextPageParam: (lastPage: pokemonType[]) => lastPage.length + 1,
+    initialPageParam: 0,
   });
 
   return (

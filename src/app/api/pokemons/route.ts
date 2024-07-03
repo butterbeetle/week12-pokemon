@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   const pageString = params.get("page")!;
 
   if (!pageString) {
-    console.log("UNVALID PAGE STRING ERROR___", pageString);
+    console.log("UNVALID PAGE STRING ERROR___", pageString, typeof pageString);
     return NextResponse.json({ error: `This page number is not valid` });
   }
 
@@ -19,15 +19,15 @@ export async function GET(req: NextRequest) {
   const pageNumber = parseInt(pageString, 10);
   // console.log("PAGE___", pageNumber, typeof pageNumber);
 
-  if (isNaN(pageNumber) || pageNumber < 1) {
-    console.log("UNVALID PAGE NUMBER ERROR___", pageNumber);
+  if (isNaN(pageNumber) || pageNumber < 0) {
+    console.log("UNVALID PAGE NUMBER ERROR___", pageNumber, typeof pageNumber);
     return NextResponse.json({ error: `This page number is not valid` });
   }
 
-  const startIndex = (pageNumber - 1) * POKEMON_PER_PAGE;
+  const startIndex = pageNumber * POKEMON_PER_PAGE;
   // console.log("startIndex___", startIndex);
 
-  const endIndex = Math.min(pageNumber * POKEMON_PER_PAGE, TOTAL_POKEMON);
+  const endIndex = Math.min((pageNumber + 1) * POKEMON_PER_PAGE, TOTAL_POKEMON);
   // console.log("endIndex___", endIndex);
 
   try {
