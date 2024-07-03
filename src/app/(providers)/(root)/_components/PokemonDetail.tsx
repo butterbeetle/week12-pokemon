@@ -1,12 +1,9 @@
-import api from "@/api/api";
+import { pokeType } from "@/types/pokemon";
 import Image from "next/image";
 import Chip from "./Chip";
-interface PoketmonDetailPageProps {
-  params: { pokemonId: number };
-}
-async function PokemonDetail({ params }: PoketmonDetailPageProps) {
-  const pokemon = await api.getPokemon(params.pokemonId);
 
+function PokemonDetail({ pokemon }: { pokemon: pokeType }) {
+  // console.log("POKEMON DETAIL___", pokemon);
   return (
     <div className="w-full border-4 border-black flex flex-col md:flex-row items-center p-4">
       <div className="relative aspect-square size-1/2">
