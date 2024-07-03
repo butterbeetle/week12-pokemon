@@ -30,7 +30,7 @@ function PokemonList() {
       const nextPage = lastPage.length ? allPage.length : undefined;
       return nextPage;
     },
-    initialPageParam: 1,
+    initialPageParam: 0,
     select: (data: InfiniteData<pokemonType[], unknown>) =>
       data.pages.flatMap((page) => page),
     staleTime: Infinity,
