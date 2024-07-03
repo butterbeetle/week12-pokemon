@@ -1,5 +1,6 @@
 import { pokemonType } from "@/types/pokemon";
 import Image from "next/image";
+import Chip from "../Chip";
 
 interface PokemonCardProps {
   pokemon: pokemonType;
@@ -30,12 +31,7 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
 
       <div className="flex justify-between gap-x-2">
         {pokemon.types.map(({ type: { name } }) => (
-          <div
-            className="flex-1 text-xs rounded-md  py-1 text-center border"
-            key={name}
-          >
-            {name}
-          </div>
+          <Chip key={name} type={name} />
         ))}
       </div>
     </div>

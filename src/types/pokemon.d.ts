@@ -1,3 +1,23 @@
+type PokemonTypes =
+  | "normal"
+  | "fire"
+  | "water"
+  | "grass"
+  | "electric"
+  | "ice"
+  | "fighting"
+  | "poison"
+  | "ground"
+  | "flying"
+  | "psychic"
+  | "bug"
+  | "rock"
+  | "ghost"
+  | "dragon"
+  | "dark"
+  | "steel"
+  | "fairy";
+
 export type pokemonType = {
   id: number;
   height: number;
@@ -8,7 +28,7 @@ export type pokemonType = {
   korean_name: string;
   types: {
     type: {
-      name: string;
+      name: PokemonTypes;
     };
   }[];
   abilities: {
@@ -35,7 +55,7 @@ export type pokeType = {
   };
   types: {
     type: {
-      name: string;
+      name: PokemonTypes;
       korean_name: string;
     };
   }[];

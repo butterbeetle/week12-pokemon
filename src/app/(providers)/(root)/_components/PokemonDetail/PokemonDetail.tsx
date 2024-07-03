@@ -1,5 +1,6 @@
 import { pokeType } from "@/types/pokemon";
 import Image from "next/image";
+import Chip from "../Chip";
 
 function PokemonDetail({ pokemon }: { pokemon: pokeType }) {
   return (
@@ -28,12 +29,7 @@ function PokemonDetail({ pokemon }: { pokemon: pokeType }) {
               <p className="text-xs text-gray-400">타입</p>
               <div className="flex gap-x-2">
                 {pokemon.types.map(({ type }) => (
-                  <div
-                    className="flex-1 text-xs rounded-md py-1 text-center border"
-                    key={type.korean_name}
-                  >
-                    {type.korean_name}
-                  </div>
+                  <Chip key={type.name} type={type.name} />
                 ))}
               </div>
             </div>
