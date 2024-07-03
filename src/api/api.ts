@@ -1,3 +1,4 @@
+import { pokeType } from "@/types/pokemon";
 import axios, { AxiosInstance } from "axios";
 
 const baseURL = "http://localhost:3000/api";
@@ -16,10 +17,15 @@ class API {
   }
 
   async getPokemon(pokemonId: number) {
-    // console.log("GET POKEMON START___");
-    const response = await this.client.get(`/pokemons/${pokemonId}`);
+    // console.log("GET POKEMON START___", pokemonId);
+    const response = await this.client.get<pokeType>(`/pokemons/${pokemonId}`);
     // console.log("GET POKEMON___", response);
     return response.data;
+    // const res = await fetch(`http://localhost:3000/api/pokemons/${pokemonId}`);
+    // console.log("RES___", res);
+    // const data: pokeType = await res.json();
+    // console.log("DATA___", data);
+    // return data;
   }
 }
 
