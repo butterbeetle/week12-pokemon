@@ -8,9 +8,9 @@ interface PokemonCardProps {
 
 function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-4 group">
       <div>
-        <div className="relative aspect-square border-2 rounded-lg">
+        <div className="relative aspect-square border-2 transition rounded-lg group-hover:shadow-lg group-active:shadow-[inset_0_2px_8px_gray]">
           <Image
             fill
             sizes="180px"
