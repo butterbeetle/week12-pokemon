@@ -12,6 +12,8 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
         <div className="relative aspect-square border-2 rounded-lg">
           <Image
             fill
+            sizes="180px"
+            priority
             className="object-contain"
             src={pokemon.sprites.front_default}
             alt={pokemon.korean_name}

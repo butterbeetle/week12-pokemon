@@ -6,6 +6,8 @@ function PokemonDetail({ pokemon }: { pokemon: pokeType }) {
     <div className="w-full border-4 border-black flex flex-col md:flex-row items-center p-4">
       <div className="relative aspect-square size-1/2">
         <Image
+          sizes="180px"
+          priority
           src={pokemon.sprites.front_default}
           fill
           className="object-cover"
