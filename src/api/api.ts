@@ -1,30 +1,32 @@
-import { pokeType } from "@/types/pokemon";
-import axios, { AxiosInstance } from "axios";
-
 const baseURL = `${process.env.NEXT_PUBLIC_SITE_URL}/api`;
 
 class API {
-  private client: AxiosInstance;
-
-  constructor() {
-    this.client = axios.create({ baseURL });
-  }
+  constructor() {}
 
   async getPokemons(pageParam: any) {
-    const response = await this.client.get(`/pokemons?page=${pageParam}`);
-    return response.data;
+    // const response = await this.client.get(`/pokemons?page=${pageParam}`);
+    // return response.data;
+
+    const data = await fetch(
+      `${baseURL}/pokemons?page=${pageParam}`,
+      { cache: "force-cache" } // default, ssg
+    );
+    const pokemon = await data.json();
+    return pokemon;
   }
 
   async getPokemon(pokemonId: number) {
-    const response = await this.client.get<pokeType>(`/pokemons/${pokemonId}`);
-    return response.data;
+    // const response = await this.client.get<pokeType>(`/pokemons/${pokemonId}`);
+    // return response.data;
 
-    // const data = await fetch(
-    //   `http://localhost:3000/api/pokemons/${pokemonId}`,
-    //   { cache: "force-cache" }
-    // );
-    // const pokemon = await data.json();
-    // return pokemon;
+    const data = await fetch(
+      `${baseURL}/pokemons/${pokemonId}`,
+      { cache: "force-cache" }
+      // { cache: "no-store" } // ssr
+      // { next: { revalidate: 10} } // isr
+    );
+    const pokemon = await data.json();
+    return pokemon;
   }
 }
 
