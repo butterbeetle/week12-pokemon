@@ -9,7 +9,8 @@ class API {
 
     const data = await fetch(
       `${baseURL}/pokemons?page=${pageParam}`,
-      { cache: "force-cache" } // default, ssg
+      // { cache: "force-cache" } // default, ssg
+      { cache: "no-store" }
     );
     const pokemon = await data.json();
     return pokemon;
@@ -21,8 +22,8 @@ class API {
 
     const data = await fetch(
       `${baseURL}/pokemons/${pokemonId}`,
-      { cache: "force-cache" }
-      // { cache: "no-store" } // ssr
+      // { cache: "force-cache" }
+      { cache: "no-store" } // ssr
       // { next: { revalidate: 10} } // isr
     );
     const pokemon = await data.json();
