@@ -13,6 +13,11 @@ interface PoketmonDetailPageProps {
 }
 
 async function PokemonDetailPage({ params }: PoketmonDetailPageProps) {
+  // const data = await fetch(
+  //   `http://localhost:3000/api/pokemons/${params.pokemonId}`,
+  //   { cache: "force-cache" }
+  // );
+  // const pokemon = await data.json();
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["pokemon", { id: params.pokemonId }],

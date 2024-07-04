@@ -12,20 +12,19 @@ class API {
 
   async getPokemons(pageParam: any) {
     const response = await this.client.get(`/pokemons?page=${pageParam}`);
-    // console.log("GET POKEMONS___", response);
     return response.data;
   }
 
   async getPokemon(pokemonId: number) {
-    // console.log("GET POKEMON START___", pokemonId);
     const response = await this.client.get<pokeType>(`/pokemons/${pokemonId}`);
-    // console.log("GET POKEMON___", response);
     return response.data;
-    // const res = await fetch(`http://localhost:3000/api/pokemons/${pokemonId}`);
-    // console.log("RES___", res);
-    // const data: pokeType = await res.json();
-    // console.log("DATA___", data);
-    // return data;
+
+    // const data = await fetch(
+    //   `http://localhost:3000/api/pokemons/${pokemonId}`,
+    //   { cache: "force-cache" }
+    // );
+    // const pokemon = await data.json();
+    // return pokemon;
   }
 }
 
