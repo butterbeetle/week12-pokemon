@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import api from "@/api/api";
 import Page from "@/components/Page/Page";
 import { pokeType } from "@/types/pokemon";
