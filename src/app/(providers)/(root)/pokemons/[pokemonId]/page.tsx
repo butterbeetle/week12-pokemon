@@ -1,12 +1,9 @@
 import api from "@/api/api";
 import Page from "@/components/Page/Page";
 import { pokeType } from "@/types/pokemon";
-import {
-  HydrationBoundary,
-  QueryClient,
-  dehydrate,
-} from "@tanstack/react-query";
+import { Suspense } from "react";
 import PokemonDetail from "../../_components/PokemonDetail";
+import Loading from "./loading";
 
 interface PoketmonDetailPageProps {
   params: { pokemonId: number };
@@ -18,23 +15,24 @@ async function PokemonDetailPage({ params }: PoketmonDetailPageProps) {
   //   { cache: "force-cache" }
   // );
   // const pokemon = await data.json();
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ["pokemon", { id: params.pokemonId }],
-    queryFn: () => api.getPokemon(params.pokemonId),
-    staleTime: Infinity,
-  });
 
-  const pokemon = await queryClient.getQueryData<pokeType>([
-    "pokemon",
-    { id: params.pokemonId },
-  ]);
+  // const queryClient = new QueryClient();
+  // await queryClient.prefetchQuery({
+  //   queryKey: ["pokemon", { id: params.pokemonId }],
+  //   queryFn: () => api.getPokemon(params.pokemonId),
+  //   staleTime: Infinity,
+  // });
+
+  // const pokemon = await queryClient.getQueryData<pokeType>([
+  //   "pokemon",
+  //   { id: params.pokemonId },
+  // ]);
 
   return (
     <Page>
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        {pokemon && <PokemonDetail pokemon={pokemon} />}
-      </HydrationBoundary>
+      <Suspense fallback={<Loading />}>
+        <PokemonDetail id={params.pokemonId} />
+      </Suspense>
     </Page>
   );
 }

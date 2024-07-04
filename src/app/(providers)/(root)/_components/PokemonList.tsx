@@ -6,7 +6,7 @@ import { InfiniteData, useInfiniteQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import PokemonCard from "./PokemonCard";
-import PokemonSkeletonCard from "./PokemonSkeletonCard";
+import PokemonCardSkeleton from "./PokemonCardSkeleton";
 
 function PokemonList() {
   const obsRef = useRef<HTMLDivElement>(null);
@@ -77,7 +77,7 @@ function PokemonList() {
         {isFetching &&
           Array.from({ length: 20 }).map((_, idx) => (
             <li key={idx}>
-              <PokemonSkeletonCard />
+              <PokemonCardSkeleton />
             </li>
           ))}
       </ul>

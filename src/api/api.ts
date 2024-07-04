@@ -7,7 +7,6 @@ class API {
   private client: AxiosInstance;
 
   constructor() {
-    console.log(baseURL);
     this.client = axios.create({ baseURL });
   }
 

@@ -1,4 +1,4 @@
-function PokemonSkeletonCard() {
+function PokemonCardSkeleton() {
   return (
     <div className="flex flex-col gap-y-4 animate-pulse">
       <div>
@@ -18,4 +18,4 @@ function PokemonSkeletonCard() {
   );
 }
 
-export default PokemonSkeletonCard;
+export default PokemonCardSkeleton;
