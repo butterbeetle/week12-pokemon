@@ -1,12 +1,13 @@
 import { pokeType } from "@/types/pokemon";
 import axios, { AxiosInstance } from "axios";
 
-const baseURL = "http://localhost:3000/api";
+const baseURL = `${process.env.NEXT_PUBLIC_SITE_URL}/api`;
 
 class API {
   private client: AxiosInstance;
 
   constructor() {
+    console.log(baseURL);
     this.client = axios.create({ baseURL });
   }
 
