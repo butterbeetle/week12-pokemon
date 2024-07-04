@@ -1,5 +1,6 @@
 "use client";
 
+import { isDevMode } from "@/utils/isDev";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { PropsWithChildren } from "react";
@@ -31,7 +32,7 @@ function ProvidersLayout({ children }: PropsWithChildren) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools />
+      {isDevMode && <ReactQueryDevtools />}
     </QueryClientProvider>
   );
 }
