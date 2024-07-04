@@ -3,7 +3,7 @@ const baseURL = `${process.env.NEXT_PUBLIC_SITE_URL}/api`;
 class API {
   constructor() {}
 
-  async getPokemons(pageParam: any) {
+  async getPokemons(pageParam: number) {
     // const response = await this.client.get(`/pokemons?page=${pageParam}`);
     // return response.data;
 

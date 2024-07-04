@@ -2,7 +2,9 @@
 
 ##### 주제: NextJS 를 이용해 나만의 포켓몬 도감을 만들어 보기
 
-[바로가기](https://week12-pokemon.vercel.app/)
+### 🔗 링크
+
+[포켓몬 도감](https://week12-pokemon.vercel.app/)
 
 ### ⏰ 기한
 
